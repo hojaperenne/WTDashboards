@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import LinesChart from '/workspace/WTDashboards/src/resources/Chart';
 
 const WeatherHourlyContainer = styled.div`
   background-color: #fff;
@@ -30,6 +31,7 @@ class WeatherHourly extends Component {
       <WeatherHourlyContainer>
         <h2>Hourly Temperature</h2>
         <HourlyTemperatureList>
+          <LinesChart />
           {/*{hourlyTemperatures.map((temperature, index) => (
             <HourlyTemperatureItem key={index}>
               {temperature}°C

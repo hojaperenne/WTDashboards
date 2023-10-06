@@ -1,47 +1,49 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import WeatherCurrent from '/workspace/practico3/src/sub/WeatherCurrent'; // Subcomponente para la información actual
-import WeatherMinMax from '/workspace/practico3/src/sub/WeatherMinMax'; // Subcomponente para temperatura mínima y máxima
-import WeatherHourly from '/workspace/practico3/src/sub/WeatherHourly'; // Subcomponente para la temperatura a lo largo del día
-import WeatherDetails from '/workspace/practico3/src/sub/WeatherDetails'; // Subcomponente para detalles adicionales
+import WeatherDashboard from '/workspace/WTDashboards/src/WeatherDashboard'; // Importa el componente existente
+import TransportDashboard from '/workspace/WTDashboards/src/TransportDashboard'; // Importa el nuevo componente de transporte
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 10px;
+`;
 
 const DashboardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
-  gap: 20px; /* Espacio entre las columnas */
-  height: 100vh;
-  padding: 20px;
+  flex: 1;
+  width: 100%;
+  height: 50vh;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  
+  @media (min-width: 768px) {
+    max-height: 45%;
+  }
+
+  @media (min-width: 1024px) {
+    max-height: 40%;
+  }
 `;
 
-const Column1 = styled.div`
-  grid-column: 1 / 2; /* Primera columna */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const Column2 = styled.div`
-  grid-column: 2 / 3; /* Segunda columna */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-class WeatherDashboard extends Component {
+class App extends Component {
   render() {
     return (
-      <DashboardContainer>
-        <Column1>
-          <WeatherCurrent />
-          <WeatherMinMax />
-        </Column1>
-        <Column2>
-          <WeatherHourly />
-          <WeatherDetails />
-        </Column2>
-      </DashboardContainer>
+      <div>
+        <MainContainer>
+          <DashboardContainer>
+            <WeatherDashboard />
+          </DashboardContainer>
+          <DashboardContainer>
+            <TransportDashboard />
+          </DashboardContainer>
+        </MainContainer>
+      </div>
     );
   }
 }
 
-export default WeatherDashboard;
+export default App;
