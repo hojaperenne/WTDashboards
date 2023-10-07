@@ -7,8 +7,9 @@ const WeatherMinMaxContainer = styled.div`
   grid-template-rows: auto auto; /* Dos filas con altura automática */
   gap: 10px; /* Espacio entre elementos */
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   border-radius: 5px;
+  background-color: #cfe2f3;
 `;
 
 const TemperatureLabel = styled.div`

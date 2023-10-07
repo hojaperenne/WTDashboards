@@ -7,18 +7,18 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  padding: 10px;
+  //height: 95vh;
+  //padding: 10px;
 `;
 
 const DashboardContainer = styled.div`
   flex: 1;
-  width: 100%;
+  width: 98vw;
   height: 50vh;
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  //margin-bottom: 10px;
   
   @media (min-width: 768px) {
     max-height: 45%;

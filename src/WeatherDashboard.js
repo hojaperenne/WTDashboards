@@ -8,23 +8,26 @@ import WeatherDetails from '/workspace/WTDashboards/src/sub/WeatherDetails'; // 
 const DashboardContainer = styled.div`
   display: grid;
   grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
-  gap: 20px; /* Espacio entre las columnas */
-  height: 45vh;
-  padding: 20px;
+  gap: 10px; /* Espacio entre las columnas */
+  /*height: 100vh;*/
+  padding: 10px;
+  background-color: #9fc5e8;
 `;
 
 const Column1 = styled.div`
   grid-column: 1 / 2; /* Primera columna */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  background-color: #9fc5e8;
 `;
 
 const Column2 = styled.div`
   grid-column: 2 / 3; /* Segunda columna */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  background-color: #9fc5e8;
 `;
 
 class WeatherDashboard extends Component {

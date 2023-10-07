@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const WeatherCurrentContainer = styled.div`
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #cfe2f3;
+  border: 1px solid #000;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

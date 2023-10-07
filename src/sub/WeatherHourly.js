@@ -3,17 +3,26 @@ import styled from 'styled-components';
 import LinesChart from '/workspace/WTDashboards/src/resources/Chart';
 
 const WeatherHourlyContainer = styled.div`
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #cfe2f3;
+  border: 1px solid #000;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 40vh;
+`;
+
+const Chart = styled.div`
+heigth:15vh;
+width: 64vw;
+/*position: relative;*/
+margin: auto;
 `;
 
 const HourlyTemperatureList = styled.ul`
   list-style: none;
   padding: 0;
 `;
+
 
 //const HourlyTemperatureItem = styled.li`
 //  font-size: 18px;
@@ -31,7 +40,8 @@ class WeatherHourly extends Component {
       <WeatherHourlyContainer>
         <h2>Hourly Temperature</h2>
         <HourlyTemperatureList>
-          <LinesChart />
+          <Chart><LinesChart /></Chart>
+          
           {/*{hourlyTemperatures.map((temperature, index) => (
             <HourlyTemperatureItem key={index}>
               {temperature}°C
