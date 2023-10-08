@@ -18,16 +18,18 @@ const Column1 = styled.div`
   grid-column: 1 / 2; /* Primera columna */
   display: flex;
   flex-direction: column;
-  gap: 10px;
   background-color: #9fc5e8;
+  flex: 1;
+  gap: 10px;
 `;
 
 const Column2 = styled.div`
   grid-column: 2 / 3; /* Segunda columna */
   display: flex;
   flex-direction: column;
-  gap: 10px;
   background-color: #9fc5e8;
+  display: flex;
+  gap: 10px;
 `;
 
 class WeatherDashboard extends Component {

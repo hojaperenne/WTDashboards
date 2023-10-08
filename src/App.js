@@ -7,7 +7,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //height: 95vh;
+  height: 95vh;
   //padding: 10px;
 `;
 
@@ -19,14 +19,6 @@ const DashboardContainer = styled.div`
   padding: 10px;
   box-sizing: border-box;
   //margin-bottom: 10px;
-  
-  @media (min-width: 768px) {
-    max-height: 45%;
-  }
-
-  @media (min-width: 1024px) {
-    max-height: 40%;
-  }
 `;
 
 class App extends Component {

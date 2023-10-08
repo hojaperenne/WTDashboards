@@ -11,6 +11,8 @@ import {
   Filler,
 } from 'chart.js';
 
+//import { UserData } from "/workspace/WTDashboards/src/resources/Data";
+//import { useState } from "react";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -22,15 +24,40 @@ ChartJS.register(
     Filler
   );
   
-  let beneficios = [0, 11, 22, 3, 34, 5, 6, 31, 18, 9, 10, 11, 12];
-  let horas = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  let temperature = [
+    14.3,
+    14.0,
+    14.2,
+    15.5,
+    16.8,
+    19.0,
+    21.3,
+    23.2,
+    24.8,
+    24.2,
+    22.9,
+    22.4,
+    22.4,
+    20.1,
+    17.2,
+    16.0,
+    15.5,
+    14.8,
+    14.2,
+    13.5,
+    13.0,
+    12.8,
+    12.5,
+    12.4
+];
+  let hours = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
   
   let midata = {
-    labels: horas,
+    labels: hours,
     datasets: [
       {
-        label: 'Beneficios',
-        data: beneficios,
+        label: 'Temperature',
+        data: temperature,
         tension: 0.5,
         fill: true,
         borderColor: 'rgb(255,216,44)',
