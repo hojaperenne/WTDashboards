@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const WeatherDetailsContainer = styled.div`
@@ -25,51 +25,65 @@ const DetailContainer = styled.div`
   background-color: #f9f9f9;
 `;
 
-class WeatherDetails extends Component {
-  // ... Tu lógica existente para obtener datos y establecer el estado
+const API_URL_1 = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-34.7845&longitude=-58.1783&&current=carbon_monoxide&timezone=America%2FSao_Paulo'; // Reemplaza con la URL de la primera API
+const API_URL_2 = 'https://api.open-meteo.com/v1/forecast?latitude=-34.7845&longitude=-58.1783&hourly=temperature_2m,relativehumidity_2m,weathercode,visibility,is_day,precipitation_probability&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max,windspeed_10m_max&current_weather=true&timezone=America%2FSao_Paulo'; // Reemplaza con la URL de la segunda API
 
-  render() {
-    // Extrae los datos del estado o props
-    /*const {
-      uvIndex,
-      windState,
-      airQuality,
-      visibility,
-      humidity,
-      sunriseTime,
-      sunsetTime,
-    } = this.state;*/
+function WeatherDetails() {
+  const [airQuality, setAirQuality] = useState(null);
+  const [uvIndex, setUvIndex] = useState(null);
+  const [windState, setWindState] = useState(null);
+  const [visibility, setVisibility] = useState(null);
+  const [humidity, setHumidity] = useState(null);
+  const [precipitationProbability, setPrecipitationProbability] = useState(null);
 
-    return (
-      <WeatherDetailsContainer>
-          <DetailContainer>
-            <div>UV Index:</div>
-            <div>{/*{uvIndex}*/}6</div>
-          </DetailContainer>
-          <DetailContainer>
-            <div>Wind:</div>
-            <div>{/*{windState}*/}11.11 km/h</div>
-          </DetailContainer>
-          <DetailContainer>
-            <div>Air Quality:</div>
-            <div>{/*{airQuality}*/}105</div>
-          </DetailContainer>
-          <DetailContainer>
-            <div>Visibility:</div>
-            <div>{/*{visibility}*/}6.1 km</div>
-          </DetailContainer>
-          <DetailContainer>
-            <div>Humidity:</div>
-            <div>{/*{humidity}*/}12%</div>
-          </DetailContainer>
-          <DetailContainer>
-            <div>Sunrise & Sunset:</div>
-            <div>{/*{sunriseTime}*/}6:36 A.M.</div>
-            <div>{/*{sunsetTime}*/}19:00 P.M.</div>
-          </DetailContainer>
-      </WeatherDetailsContainer>
-    );
-  }
+  useEffect(() => {
+    // Realiza solicitudes a ambas APIs y espera a que se completen
+    Promise.all([
+      fetch(API_URL_1).then((response) => response.json()), // Primera API
+      fetch(API_URL_2).then((response) => response.json()), // Segunda API
+    ])
+      .then(([api1Data, api2Data]) => {
+        // Actualiza el estado con los datos de ambas API
+        setAirQuality(api1Data.current.carbon_monoxide);
+        setUvIndex(api2Data.daily.uv_index_max[0]);
+        setWindState(api2Data.current_weather.windspeed);
+        setVisibility(api2Data.hourly.visibility[0]);
+        setHumidity(api2Data.hourly.relativehumidity_2m[0]);
+        setPrecipitationProbability(api2Data.hourly.precipitation_probability[0]);
+      })
+      .catch((error) => {
+        console.error('Hubo un problema con las solicitudes a las APIs:', error);
+      });
+  }, []);
+
+  return (
+    <WeatherDetailsContainer>
+        <DetailContainer>
+          <div>UV Index:</div>
+          <div>{uvIndex}</div>
+        </DetailContainer>
+        <DetailContainer>
+          <div>Wind:</div>
+          <div>{windState} km/h</div>
+        </DetailContainer>
+        <DetailContainer>
+          <div>Air Quality:</div>
+          <div>{airQuality}</div>
+        </DetailContainer>
+        <DetailContainer>
+          <div>Visibility:</div>
+          <div>{visibility/1000} km</div>
+        </DetailContainer>
+        <DetailContainer>
+          <div>Humidity:</div>
+          <div>{humidity}%</div>
+        </DetailContainer>
+        <DetailContainer>
+        <div>Precipitation Probability:</div>
+        <div>{precipitationProbability}%</div> 
+        </DetailContainer>
+    </WeatherDetailsContainer>
+  );
 }
 
 export default WeatherDetails;

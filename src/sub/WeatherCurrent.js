@@ -74,7 +74,7 @@ function WeatherCurrent() {
 
   const { is_day, weathercode, temperature, time } = weatherData;
 
-  const imageSrc = `/workspace/WTDashboards/src/Icons/${weathercode}_${is_day}.png`;
+  const imageSrc = `https://raw.githubusercontent.com/hojaperenne/WTDashboards/gh-pages/Icons/${weathercode}_${is_day}.png`;
 
   const formattedTime = new Date(time).toLocaleTimeString('en-US', {
     hour: '2-digit',
@@ -95,7 +95,9 @@ function WeatherCurrent() {
         <Hour>{formattedTime}</Hour>
       </WeatherData>
       <div>
-        <img src={imageSrc} alt="Weather" />
+        <img src={imageSrc} alt="Weather" style={{
+    height: 96
+  }} />
       </div>
     </WeatherCurrentContainer>
   );
