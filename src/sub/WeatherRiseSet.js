@@ -58,8 +58,8 @@ class WeatherRiseSet extends Component {
       .then((data) => {
         // Aquí puedes extraer los datos necesarios de 'data' y actualizar el estado
         this.setState({
-          sunRise: data.daily.sunrise[0].split('T'),
-          sunSet: data.daily.sunset[0].split('T'),
+          sunRise: data.daily.sunrise[0].slice(10),
+          sunSet: data.daily.sunset[0].slice(10),
         });
       })
       .catch((error) => {
