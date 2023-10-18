@@ -21,7 +21,11 @@ ChartJS.register(
 );
 
 const ChartContainer = styled.div`
-  /* Estilos anteriores aquí */
+/* Estilos para el contenedor de la gráfica */
+max-width: auto; /* Ajusta el ancho máximo según tus necesidades */
+max-height: 95%; /* Ajusta la altura máxima según tus necesidades */
+position: relative;
+margin: auto;
 `;
 
 export default function LinesChart() {

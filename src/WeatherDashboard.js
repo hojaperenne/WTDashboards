@@ -4,7 +4,7 @@ import WeatherCurrent from '/workspace/WTDashboards/src/sub/WeatherCurrent'; // 
 import WeatherMinMax from '/workspace/WTDashboards/src/sub/WeatherMinMax.js'; // Subcomponente para temperatura mínima y máxima
 import WeatherHourly from '/workspace/WTDashboards/src/sub/WeatherHourly'; // Subcomponente para la temperatura a lo largo del día
 import WeatherDetails from '/workspace/WTDashboards/src/sub/WeatherDetails'; // Subcomponente para detalles adicionales
-
+import WeatherRiseSet from '/workspace/WTDashboards/src/sub/WeatherRiseSet';
 const DashboardContainer = styled.div`
   display: grid;
   grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
@@ -39,6 +39,7 @@ class WeatherDashboard extends Component {
         <Column1>
           <WeatherCurrent />
           <WeatherMinMax />
+          <WeatherRiseSet />
         </Column1>
         <Column2>
           <WeatherHourly />

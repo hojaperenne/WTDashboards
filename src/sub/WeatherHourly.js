@@ -12,9 +12,9 @@ const WeatherHourlyContainer = styled.div`
 `;
 
 const Chart = styled.div`
-heigth:15vh;
-width: 64vw;
-/*position: relative;*/
+/*max-width: 80%;*/
+/*max-height: 80%;*/
+position: relative;
 margin: auto;
 `;
 

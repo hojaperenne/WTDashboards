@@ -34,10 +34,11 @@ const Hour = styled.div`
   //font-weight: bold;
   margin-bottom: 10px;
 `;
-
-//const WeatherIcon = styled.img`
-//  max-width: 100px;
-//`;
+const WeatherImage = styled.img`
+  max-width: 75%;
+  height: auto;
+  position: relative;
+`;
 
 const API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=-34.7845&longitude=-58.1783&hourly=temperature_2m,relativehumidity_2m,weathercode,visibility,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max,windspeed_10m_max&current_weather=true&timezone=America%2FSao_Paulo'; // Reemplaza con la URL de la API de clima
 
@@ -95,9 +96,7 @@ function WeatherCurrent() {
         <Hour>{formattedTime}</Hour>
       </WeatherData>
       <div>
-        <img src={imageSrc} alt="Weather" style={{
-    height: 96
-  }} />
+        <WeatherImage src={imageSrc} alt="Weather" />
       </div>
     </WeatherCurrentContainer>
   );
