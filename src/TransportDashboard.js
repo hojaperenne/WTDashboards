@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import TransportMap from '/workspace/WTDashboards/src/resources/TransportMap';
+import "/workspace/WTDashboards/src/App.css";
 
 const TransportDashboardContainer = styled.div`
   background-color: #f5f5f5;
@@ -11,15 +13,12 @@ const TransportDashboardContainer = styled.div`
   box-sizing: border-box; /* Incluye el padding en el ancho total */
 `;
 
-class TransportDashboard extends Component {
-  render() {
-    return (
-      <TransportDashboardContainer>
-        <h2>Transport Dashboard</h2>
-        {/* Agrega aquí los subcomponentes y datos relacionados con el transporte */}
-      </TransportDashboardContainer>
-    );
-  }
+const TransportDashboard = () => {
+  return (
+    <TransportDashboardContainer>
+      <TransportMap />
+    </TransportDashboardContainer>
+  );
 }
 
 export default TransportDashboard;

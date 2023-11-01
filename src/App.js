@@ -5,20 +5,18 @@ import TransportDashboard from '/workspace/WTDashboards/src/TransportDashboard';
 
 const MainContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 95vh;
-  //padding: 10px;
+  flex-direction: column; /* Para colocar los dashboards en filas */
+  height: 100vh;
 `;
 
 const DashboardContainer = styled.div`
   flex: 1;
-  width: 98vw;
-  height: 50vh;
-  overflow-y: auto;
-  padding: 10px;
-  box-sizing: border-box;
-  //margin-bottom: 10px;
+  width: 100%; /* Ocupa el 100% del ancho */
+  height: 500px;
+  display: flex;
+  /*justify-content: center;  Centra horizontalmente */
+  /* align-items: center; Centra verticalmente */
+  /* overflow: hidden; Evita barras de desplazamiento horizontal */
 `;
 
 class App extends Component {

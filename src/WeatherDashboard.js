@@ -5,11 +5,12 @@ import WeatherMinMax from '/workspace/WTDashboards/src/sub/WeatherMinMax.js'; //
 import WeatherHourly from '/workspace/WTDashboards/src/sub/WeatherHourly'; // Subcomponente para la temperatura a lo largo del día
 import WeatherDetails from '/workspace/WTDashboards/src/sub/WeatherDetails'; // Subcomponente para detalles adicionales
 import WeatherRiseSet from '/workspace/WTDashboards/src/sub/WeatherRiseSet';
+
 const DashboardContainer = styled.div`
   display: grid;
   grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
   gap: 10px; /* Espacio entre las columnas */
-  /*height: 100vh;*/
+  width: 100vw;
   padding: 10px;
   background-color: #9fc5e8;
 `;
